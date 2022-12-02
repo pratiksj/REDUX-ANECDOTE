@@ -1,28 +1,19 @@
-import { useSelector, useDispatch } from "react-redux";
-import { voteof } from "./reducers/anecdoteReducer";
+//import { useSelector, useDispatch } from "react-redux";
 import AnecdoteForm from "./components/AnecdoteForm";
-
+import AnecdoteList from "./components/AnecdoteList";
 const App = () => {
-  const anecdotes = useSelector((state) => state);
-  const dispatch = useDispatch();
-  const orderedVote = anecdotes.sort((a, b) => b.votes - a.votes);
+  // const anecdotes = useSelector((state) => state);
+  // const dispatch = useDispatch();
+  // const orderedVote = anecdotes.sort((a, b) => b.votes - a.votes);
 
-  const vote = (id) => {
-    dispatch(voteof(id));
-  };
+  // const vote = (id) => {
+  //   dispatch(voteof(id));
+  // };
 
   return (
     <div>
-      <h2>Anecdotes</h2>
-      {orderedVote.map((anecdote) => (
-        <div key={anecdote.id}>
-          <div>{anecdote.content}</div>
-          <div>
-            has {anecdote.votes}
-            <button onClick={() => vote(anecdote.id)}>vote</button>
-          </div>
-        </div>
-      ))}
+      <h1>Anecdotes</h1>
+      <AnecdoteList />
       <AnecdoteForm />
     </div>
   );
