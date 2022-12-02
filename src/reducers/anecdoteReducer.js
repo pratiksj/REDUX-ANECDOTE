@@ -9,16 +9,6 @@ const anecdotesAtStart = [
 
 const getId = () => (100000 * Math.random()).toFixed(0);
 
-// export const createNote = (content) => {
-//   return {
-//     type: "ADD",
-//     data: {
-//       content,
-//       id: getId(),
-//     },
-//   };
-// };
-
 export const asObject = (anecdote) => {
   return {
     type: "ADD",
@@ -27,7 +17,13 @@ export const asObject = (anecdote) => {
     votes: 0,
   };
 };
-console.log(asObject, "hellow there");
+
+export const voteof = (id) => {
+  return {
+    type: "VOTE",
+    data: { id },
+  };
+};
 
 const initialState = anecdotesAtStart.map(asObject);
 console.log(initialState);
@@ -38,26 +34,20 @@ const reducer = (state = initialState, action) => {
       const addedNote = asObject(action.content);
       console.log(addedNote, "you");
       return [...state, addedNote];
-    // case 'TOGGLE_IMPORTANCE': {
-    //   const id = action.data.id
-    //   const noteToChange = state.find(n => n.id === id)
-    //   const changedNote = {
-    //     ...noteToChange,
-    //     important: !noteToChange.important
-    //   }
-    //   return state.map(note =>
-    //     note.id !== id ? note : changedNote
-    //   )
-    //  }
+    case "VOTE": {
+      const id = action.data.id;
+      console.log(id, "this is from id ");
+      return state.map((anecdote) => {
+        if (anecdote.id === id) {
+          return { ...anecdote, votes: anecdote.votes + 1 };
+        } else {
+          return anecdote;
+        }
+      });
+    }
     default:
       return state;
   }
 };
-
-// const reducer = (state = initialState, action) => {
-//   console.log("state now: ", state);
-//   console.log("action", action);
-//   return state;
-// };
 
 export default reducer;
