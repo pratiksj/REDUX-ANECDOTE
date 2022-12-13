@@ -1,7 +1,13 @@
-import { createStore } from "redux";
+//import { createStore } from "redux";
+//import React from "react";
+import { configureStore } from "@reduxjs/toolkit";
 
-import reducer from "./reducers/anecdoteReducer";
-
-const store = createStore(reducer);
+import anecdoteReducer from "./reducers/anecdoteReducer";
+//const store = createStore(anecdoteReducer);
+const store = configureStore({
+  reducer: {
+    anecdote: anecdoteReducer,
+  },
+});
 
 export default store;
