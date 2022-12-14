@@ -32,11 +32,11 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD":
       const addedNote = asObject(action.content);
-      console.log(addedNote, "you");
+      //console.log(addedNote, "you");
       return [...state, addedNote];
     case "VOTE": {
       const id = action.data.id;
-      console.log(id, "this is from id ");
+      //console.log(id, "this is from id ");
       return state.map((anecdote) => {
         if (anecdote.id === id) {
           return { ...anecdote, votes: anecdote.votes + 1 };
