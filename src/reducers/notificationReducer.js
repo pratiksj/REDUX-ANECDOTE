@@ -8,6 +8,9 @@ const notificationSlice = createSlice({
       const message = action.payload;
       return message;
     },
+    removeMessage() {
+      return null;
+    },
   },
 });
 
@@ -15,5 +18,5 @@ const notificationSlice = createSlice({
 
 // }
 
-export const { setMessage } = notificationSlice.actions;
+export const { setMessage, removeMessage } = notificationSlice.actions;
 export default notificationSlice.reducer;
