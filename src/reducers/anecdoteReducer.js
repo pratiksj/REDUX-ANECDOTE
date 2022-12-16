@@ -1,3 +1,6 @@
+import { createSlice } from "@reduxjs/toolkit";
+//import { initializeConnect } from "react-redux/es/components/connect";
+
 const anecdotesAtStart = [
   "If it hurts, do it more often",
   "Adding manpower to a late software project makes it later!",
@@ -18,25 +21,51 @@ export const asObject = (anecdote) => {
   };
 };
 
-export const voteof = (id) => {
-  return {
-    type: "VOTE",
-    data: { id },
-  };
-};
+// export const voteof = (id) => {
+//   return {
+//     type: "VOTE",
+//     data: { id },
+//   };
+// };
 
 const initialState = anecdotesAtStart.map(asObject);
 //console.log(initialState);
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "ADD":
-      const addedNote = asObject(action.content);
-      //console.log(addedNote, "you");
-      return [...state, addedNote];
-    case "VOTE": {
-      const id = action.data.id;
-      //console.log(id, "this is from id ");
+// const reducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case "ADD":
+//       const addedNote = asObject(action.content);
+//       //console.log(addedNote, "you");
+//       return [...state, addedNote];
+//     case "VOTE": {
+//       const id = action.data.id;
+//       //console.log(id, "this is from id ");
+//       return state.map((anecdote) => {
+//         if (anecdote.id === id) {
+//           return { ...anecdote, votes: anecdote.votes + 1 };
+//         } else {
+//           return anecdote;
+//         }
+//       });
+//     }
+//     default:
+//       return state;
+//   }
+//}
+const anecdoteSlice = createSlice({
+  name: "anecdote",
+  initialState,
+  reducers: {
+    createAnecdote(state, action) {
+      const anecdote = action.payload;
+      state.push({
+        anecdote,
+        id: getId(),
+        votes: 0,
+      });
+    },
+    voteof(state, action) {
+      const id = action.payload;
       return state.map((anecdote) => {
         if (anecdote.id === id) {
           return { ...anecdote, votes: anecdote.votes + 1 };
@@ -44,10 +73,10 @@ const reducer = (state = initialState, action) => {
           return anecdote;
         }
       });
-    }
-    default:
-      return state;
-  }
-};
+    },
+  },
+});
 
-export default reducer;
+export const { createAnecdote, voteof } = anecdoteSlice.actions;
+export default anecdoteSlice.reducer;
+//export default reducer;
