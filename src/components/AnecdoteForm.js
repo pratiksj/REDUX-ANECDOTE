@@ -18,6 +18,17 @@ const AnecdoteForm = () => {
     }, 3000);
   };
 
+  // const newAnecdote = async (event) => {
+  //   event.preventDefault();
+  //   const content = event.target.anecdote.value;
+  //   event.target.anecdote.value = "";
+  //   dispatch(createAnecdote(content));
+  //   dispatch(setMessage(`${content} has added`));
+  //   setTimeout(() => {
+  //     dispatch(removeMessage());
+  //   }, 3000);
+  // };
+
   return (
     <div>
       <h2>create new</h2>

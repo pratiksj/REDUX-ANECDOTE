@@ -31,8 +31,8 @@ const AnecdoteList = () => {
 
   const vote = (id) => {
     const anecdote = anecdotesFromStore?.find((anecdote) => anecdote.id === id);
-
     dispatch(voteof(id));
+
     dispatch(setMessage(`you voted${anecdote.content}`));
     setTimeout(() => {
       dispatch(removeMessage());
