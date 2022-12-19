@@ -30,12 +30,12 @@ const anecdoteSlice = createSlice({
     createAnecdote(state, action) {
       const content = action.payload;
       console.log("this is payload", action.payload);
-      state.push({
-        content,
-        // id: getId(),
-        votes: 0,
-      });
-      // return [...state, addedAnecdote];
+      // state.push({
+      //   content,
+      //   // id: getId(),
+      //   votes: 0,
+      // });
+      return [...state, content];
     },
     voteof(state, action) {
       const id = action.payload;
@@ -50,7 +50,7 @@ const anecdoteSlice = createSlice({
     },
 
     appendAnecdote(state, action) {
-      state.push(action.payload);
+      return [...state, action.payload];
     },
 
     setAnecdotes(state, action) {
