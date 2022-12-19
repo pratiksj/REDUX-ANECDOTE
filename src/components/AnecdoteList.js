@@ -6,7 +6,7 @@ const AnecdoteList = () => {
   const anecdotesFromStore = useSelector((state) => state.anecdotes);
   //const anecdotes = anecdotesFromStore ? anecdotesFromStore : [];
   //console.log("hellow i am anecdote", anecdotes);
-  //const filter = useSelector((state) => state.filter);
+  const filter = useSelector((state) => state.filter);
   //console.log("hellow i am filer", filter);
 
   const dispatch = useDispatch();
@@ -15,19 +15,19 @@ const AnecdoteList = () => {
   //   anecdote.content?.includes(filter)
   // );
 
-  // const filterAnecdote = anecdotes.filter((anecdote) =>
-  //   anecdote.anecdote.includes(filter)
-  // );
+  const filterAnecdote = anecdotesFromStore.filter((anecdote) =>
+    anecdote.content.includes(filter)
+  );
 
   //console.log("my laptop", filterAnecdote);
 
   const initlaOrderedVote = [...anecdotesFromStore].sort(
     (a, b) => b.votes - a.votes
   );
-  //const orderedVote = [...filterAnecdote].sort((a, b) => b.votes - a.votes);
+  const orderedVote = [...filterAnecdote].sort((a, b) => b.votes - a.votes);
 
-  // const showAnecdots =
-  //   orderedVote.length !== 0 ? orderedVote : initlaOrderedVote;
+  const showAnecdots =
+    orderedVote.length !== 0 ? orderedVote : initlaOrderedVote;
 
   const vote = (id) => {
     const anecdote = anecdotesFromStore?.find((anecdote) => anecdote.id === id);
@@ -41,7 +41,7 @@ const AnecdoteList = () => {
   return (
     <div>
       <h2>Anecdotes</h2>
-      {initlaOrderedVote.map((anecdote) => (
+      {showAnecdots.map((anecdote) => (
         <div key={anecdote.id}>
           <div>{anecdote.content}</div>
           <div>
