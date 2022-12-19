@@ -7,7 +7,7 @@ const AnecdoteList = () => {
   //const anecdotes = anecdotesFromStore ? anecdotesFromStore : [];
   //console.log("hellow i am anecdote", anecdotes);
   const filter = useSelector((state) => state.filter);
-  //console.log("hellow i am filer", filter);
+  console.log("hellow i am", anecdotesFromStore);
 
   const dispatch = useDispatch();
 
@@ -18,7 +18,6 @@ const AnecdoteList = () => {
   const filterAnecdote = anecdotesFromStore.filter((anecdote) =>
     anecdote.content.includes(filter)
   );
-
   //console.log("my laptop", filterAnecdote);
 
   const initlaOrderedVote = [...anecdotesFromStore].sort(

@@ -1,33 +1,33 @@
 import { useDispatch } from "react-redux";
 import { createAnecdote } from "../reducers/anecdoteReducer";
 import { setMessage, removeMessage } from "../reducers/notificationReducer";
-import anecdoteService from "../services/anecdote";
+//import anecdoteService from "../services/anecdote";
 
 const AnecdoteForm = () => {
   const dispatch = useDispatch();
-
-  const newAnecdote = async (event) => {
-    event.preventDefault();
-    const content = event.target.anecdote.value;
-    event.target.anecdote.value = "";
-    const newAnecdote = await anecdoteService.createNew(content);
-    dispatch(createAnecdote(newAnecdote));
-    dispatch(setMessage(`${content} has added`));
-    setTimeout(() => {
-      dispatch(removeMessage());
-    }, 3000);
-  };
 
   // const newAnecdote = async (event) => {
   //   event.preventDefault();
   //   const content = event.target.anecdote.value;
   //   event.target.anecdote.value = "";
-  //   dispatch(createAnecdote(content));
+  //   const newAnecdote = await anecdoteService.createNew(content);
+  //   dispatch(createAnecdote(newAnecdote));
   //   dispatch(setMessage(`${content} has added`));
   //   setTimeout(() => {
   //     dispatch(removeMessage());
   //   }, 3000);
   // };
+
+  const newAnecdote = (event) => {
+    event.preventDefault();
+    const content = event.target.anecdote.value;
+    event.target.anecdote.value = "";
+    dispatch(createAnecdote(content));
+    dispatch(setMessage(`${content} has added`));
+    setTimeout(() => {
+      dispatch(removeMessage());
+    }, 3000);
+  };
 
   return (
     <div>
