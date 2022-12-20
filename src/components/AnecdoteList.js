@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { voteof } from "../reducers/anecdoteReducer";
+import { increaseLike } from "../reducers/anecdoteReducer";
 import { setMessage, removeMessage } from "../reducers/notificationReducer";
 
 const AnecdoteList = () => {
@@ -29,8 +29,8 @@ const AnecdoteList = () => {
     orderedVote.length !== 0 ? orderedVote : initlaOrderedVote;
 
   const vote = (id) => {
-    const anecdote = anecdotesFromStore?.find((anecdote) => anecdote.id === id);
-    dispatch(voteof(id));
+    const anecdote = anecdotesFromStore.find((anecdote) => anecdote.id === id);
+    dispatch(increaseLike(id));
 
     dispatch(setMessage(`you voted${anecdote.content}`));
     setTimeout(() => {

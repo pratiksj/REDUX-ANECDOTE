@@ -53,3 +53,27 @@ export const createAnecdote = (content) => {
     dispatch(appendAnecdote(newNote));
   };
 };
+
+export const increaseLike = (id) => {
+  return async (dispatch) => {
+    const content = await anecdoteService.getAll();
+    const anecdoteToLike = content.find((anecdote) => anecdote.id === id);
+    const updatedAnecdote = {
+      content: anecdoteToLike.content,
+      votes: anecdoteToLike.votes + 1,
+    };
+    const response = await anecdoteService.update(id, updatedAnecdote);
+    //console.log("plant", response);
+    dispatch(voteof(response.id));
+
+    // const content = await anecdoteService.getAll();
+    // const anecdoteToLike = content.find((anecdote) => anecdote.id === id);
+    // console.log("egg", anecdoteToLike.votes);
+    // const response = await anecdoteService.update(id, {
+    //   ...anecdoteToLike,
+    //   votes: anecdoteToLike.votes + 1,
+    // });
+    // console.log("plant", response);
+    // dispatch(voteof(response.id));
+  };
+};
