@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { increaseLike } from "../reducers/anecdoteReducer";
-import { setMessage, removeMessage } from "../reducers/notificationReducer";
+import { setNotification } from "../reducers/notificationReducer";
 
 const AnecdoteList = () => {
   const anecdotesFromStore = useSelector((state) => state.anecdotes);
@@ -18,7 +18,6 @@ const AnecdoteList = () => {
   const filterAnecdote = anecdotesFromStore.filter((anecdote) =>
     anecdote.content.includes(filter)
   );
-  //console.log("my laptop", filterAnecdote);
 
   const initlaOrderedVote = [...anecdotesFromStore].sort(
     (a, b) => b.votes - a.votes
@@ -32,10 +31,7 @@ const AnecdoteList = () => {
     const anecdote = anecdotesFromStore.find((anecdote) => anecdote.id === id);
     dispatch(increaseLike(id));
 
-    dispatch(setMessage(`you voted${anecdote.content}`));
-    setTimeout(() => {
-      dispatch(removeMessage());
-    }, 3000);
+    dispatch(setNotification(`you voted${anecdote.content}`, 3));
   };
   return (
     <div>

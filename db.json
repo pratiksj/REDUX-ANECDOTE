@@ -1,8 +1,8 @@
 {
   "anecdotes": [
     {
-      "votes": 2,
       "content": "ab sutne",
+      "votes": 4,
       "id": "5WG_4zT"
     },
     {
@@ -19,6 +19,21 @@
       "votes": 1,
       "content": "Adding opportunity ",
       "id": "Rcl30QX"
+    },
+    {
+      "content": "this is not",
+      "votes": 0,
+      "id": "rtRsgoN"
+    },
+    {
+      "content": "rgrrdxdffv",
+      "votes": 0,
+      "id": "MXQCqJh"
+    },
+    {
+      "content": "ab bhat khane",
+      "votes": 0,
+      "id": "vzjYkxK"
     }
   ]
 }

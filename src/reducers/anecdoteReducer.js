@@ -5,16 +5,6 @@ const anecdoteSlice = createSlice({
   name: "anecdote",
   initialState: [],
   reducers: {
-    //createAnecdote(state, action) {
-    //   //const content = action.payload;
-    //   //console.log("this is payload", action.payload);
-    //   // state.push({
-    //   //   content,
-    //   //   // id: getId(),
-    //   //   votes: 0,
-    //   // });
-    //return [...state, action.payload];
-    //},
     voteof(state, action) {
       const id = action.payload;
       const anecdoteToLike = state.find((n) => n.id === id);
@@ -65,15 +55,5 @@ export const increaseLike = (id) => {
     const response = await anecdoteService.update(id, updatedAnecdote);
     //console.log("plant", response);
     dispatch(voteof(response.id));
-
-    // const content = await anecdoteService.getAll();
-    // const anecdoteToLike = content.find((anecdote) => anecdote.id === id);
-    // console.log("egg", anecdoteToLike.votes);
-    // const response = await anecdoteService.update(id, {
-    //   ...anecdoteToLike,
-    //   votes: anecdoteToLike.votes + 1,
-    // });
-    // console.log("plant", response);
-    // dispatch(voteof(response.id));
   };
 };
