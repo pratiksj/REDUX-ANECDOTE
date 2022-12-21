@@ -1,18 +1,13 @@
 {
   "anecdotes": [
     {
-      "content": "ab sutne",
-      "votes": 4,
-      "id": "5WG_4zT"
-    },
-    {
       "content": "rati vayo",
-      "votes": 0,
+      "votes": 4,
       "id": "F8Kmt3O"
     },
     {
       "content": "vasline",
-      "votes": 1,
+      "votes": 9,
       "id": "29kBzba"
     },
     {
@@ -26,14 +21,19 @@
       "id": "rtRsgoN"
     },
     {
-      "content": "rgrrdxdffv",
+      "content": "nepal",
       "votes": 0,
-      "id": "MXQCqJh"
+      "id": "GhHLDUn"
     },
     {
-      "content": "ab bhat khane",
+      "content": "thhgg",
       "votes": 0,
-      "id": "vzjYkxK"
+      "id": "8EYSBdX"
+    },
+    {
+      "content": "hellow",
+      "votes": 0,
+      "id": "YdZB52D"
     }
   ]
 }
