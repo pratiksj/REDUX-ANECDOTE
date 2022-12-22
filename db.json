@@ -2,27 +2,27 @@
   "anecdotes": [
     {
       "content": "rati vayo",
-      "votes": 4,
+      "votes": 28,
       "id": "F8Kmt3O"
     },
     {
       "content": "vasline",
-      "votes": 9,
+      "votes": 53,
       "id": "29kBzba"
     },
     {
-      "votes": 1,
       "content": "Adding opportunity ",
+      "votes": 13,
       "id": "Rcl30QX"
     },
     {
       "content": "this is not",
-      "votes": 0,
+      "votes": 18,
       "id": "rtRsgoN"
     },
     {
       "content": "nepal",
-      "votes": 0,
+      "votes": 6,
       "id": "GhHLDUn"
     },
     {
@@ -32,7 +32,7 @@
     },
     {
       "content": "hellow",
-      "votes": 0,
+      "votes": 3,
       "id": "YdZB52D"
     },
     {
@@ -49,6 +49,11 @@
       "content": "sau",
       "votes": 0,
       "id": "9rmXieN"
+    },
+    {
+      "content": "this is from me",
+      "votes": 1,
+      "id": "ZTaqzhh"
     }
   ]
 }
